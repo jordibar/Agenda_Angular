@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 // Con el decorador @Component otorgamos a la clase
 // decorada comportamiento de componente
