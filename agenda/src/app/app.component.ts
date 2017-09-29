@@ -15,6 +15,16 @@ import { Component, OnInit } from '@angular/core';
   // que aplican al componente
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  
+export class AppComponent implements OnInit {
+
+  constructor() {
+    console.log('Estoy en el constructor!');
+  }
+
+  // El hook OnInit se ejecuta cuando en el componente tiene
+  // asociado su template correspondiente, por tanto, es el 
+  // momento ideal para enlazar datos entre ellos.
+  ngOnInit(): void {
+    console.log ('Estoy en el hook OnInit');
+  }
 }

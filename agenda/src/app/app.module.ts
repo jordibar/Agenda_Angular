@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { ListaContactosComponent } from './lista-contactos/lista-contactos.component';
 
 // Usamos el decorador NgModule para que la clase 
 // decorada se comporte como un módulo.
@@ -10,7 +11,8 @@ import { AppComponent } from './app.component';
   // componentes, pipes y directivas de mi aplicación.
   // AppComponent es el que se está pintando en el browser
   declarations: [
-    AppComponent
+    AppComponent,
+    ListaContactosComponent
   ],
   // En el metadato imports indicamos todos aquesllos
   // módulos de los cuales mi aplicación depende.
