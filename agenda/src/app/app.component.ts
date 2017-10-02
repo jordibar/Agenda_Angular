@@ -17,6 +17,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
+  // Creamos los contactos de la agenda
+  nombres: string[] = [
+    "Steve Jobs",
+    "Steve Wozniak",
+    "Bill Gates",
+    "Sunder Pichai",
+    "Elon Musk",
+    "Bob Esponja"
+  ];
+
   constructor() {
     console.log('Estoy en el constructor!');
   }

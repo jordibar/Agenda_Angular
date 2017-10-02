@@ -1,4 +1,8 @@
 <header>
   <h1>Agenda</h1>
 </header>
-<app-lista-contactos></app-lista-contactos>
+
+<!-- Para evaluar el valor de un atributo previamente
+      a su asignación, debemos poner entre corchetes
+      el nombre del atributo -->
+<app-lista-contactos [contactos]="nombres"></app-lista-contactos>
