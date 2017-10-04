@@ -5,6 +5,8 @@
         cual se está usando.
   -->
   <li *ngFor="let contacto of contactos">
-    {{ contacto }}
+    {{ contacto.nombre }} {{ contacto.apellidos }}
+    <!-- La suscripción eventos se hace poniendo paréntesis al nombre del mismo. -->
+    <button (click)="notificarEliminacionContacto(contacto)">Eliminar</button>
   </li>
 </ul>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ContactosService } from './contactos.service';
+import { Contacto } from './contacto';
+
 
 // Con el decorador @Component otorgamos a la clase
 // decorada comportamiento de componente
@@ -17,18 +20,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  // Creamos los contactos de la agenda
-  nombres: string[] = [
-    "Steve Jobs",
-    "Steve Wozniak",
-    "Bill Gates",
-    "Sunder Pichai",
-    "Elon Musk",
-    "Bob Esponja"
-  ];
 
-  constructor() {
-    console.log('Estoy en el constructor!');
+  nombres: Contacto[];
+  //Para hacer la inyección de dependencias de un servicio
+  // debemos hacerlo en el constructor de la clase. Anotamos
+  // un parámetro con el tipo de servicio a inyectar y
+  // añadimos el modificador de acceso correspondiente al
+  // parámetro.
+  constructor(private _contactosService: ContactosService) {
+    console.log('Componente instanciado y servicio inyectado!');
   }
 
   // El hook OnInit se ejecuta cuando en el componente tiene
@@ -36,5 +36,11 @@ export class AppComponent implements OnInit {
   // momento ideal para enlazar datos entre ellos.
   ngOnInit(): void {
     console.log ('Estoy en el hook OnInit');
+    this.nombres = this._contactosService.obtenerContactos();
+  }
+
+  eliminarContacto(nombre: Contacto): void {
+    this._contactosService.eliminarContacto(nombre);
+    this.nombres = this._contactosService.obtenerContactos();
   }
 }

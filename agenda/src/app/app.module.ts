@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ListaContactosComponent } from './lista-contactos/lista-contactos.component';
-
+import { ContactosService } from './contactos.service'
 // Usamos el decorador NgModule para que la clase 
 // decorada se comporte como un módulo.
 @NgModule({
@@ -21,7 +21,9 @@ import { ListaContactosComponent } from './lista-contactos/lista-contactos.compo
   ],
   // En el metadato providers indicamos todos aquellos
   // proveedores de clase o valores que puedan ser inyectados.
-  providers: [],
+  providers: [
+    ContactosService
+  ],
   // En el metadato bootstrap indicamos el componente raíz
   // a partir del cual se construye toda la aplicación
   bootstrap: [
