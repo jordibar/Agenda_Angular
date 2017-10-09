@@ -21,6 +21,11 @@ export class ContactosService {
       return this._nombres;
     }
 
+    agregarContacto( contacto: Contacto ):  void {
+      this._nombres.push(contacto);
+    }
+
+
     eliminarContacto(nombre: Contacto): void {
       // Esto es JS no Angular
       // Para eliminar el contacto indicado lo que hacemos es
