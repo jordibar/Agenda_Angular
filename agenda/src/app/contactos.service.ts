@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs/Observable';
 
 import { Contacto } from './contacto';
 
@@ -7,31 +10,21 @@ import { Contacto } from './contacto';
 @Injectable()
 export class ContactosService {
 
-    // Creamos los contactos de la agenda
-    private _nombres: Contacto[] = [
-      new Contacto(1, 'Steve', 'Jobs'),
-      new Contacto(2, 'Steve', 'Wozniak'),
-      new Contacto(3, 'Bill', 'Gates'),
-      new Contacto(4, 'Sunder', 'Pichai'),
-      new Contacto(5, 'Elon', 'Musk'),
-      new Contacto(6, 'Bob', 'Esponja')
-    ];
+  constructor(private _httpClient: HttpClient) { }
 
-    obtenerContactos(): Contacto[] {
-      return this._nombres;
+ 
+
+    obtenerContactos(): Observable<Contacto[]> {
+      return this._httpClient.get<Contacto[]>('http://localhost:3004/contactos');
     }
 
-    agregarContacto( contacto: Contacto ):  void {
-      this._nombres.push(contacto);
+    agregarContacto( contacto: Contacto ):  Observable<Contacto> {
+      return this._httpClient.post<Contacto>('http://localhost:3004/contactos', contacto);
     }
 
 
-    eliminarContacto(nombre: Contacto): void {
-      // Esto es JS no Angular
-      // Para eliminar el contacto indicado lo que hacemos es
-      // filtrar la colección de contactos y quedarnos con todos
-      // aquellos que no sean el indicado.
-      this._nombres = this._nombres.filter(n => (n.id) !== nombre.id);
+    eliminarContacto(contacto: Contacto): Observable<Contacto> {
+      return this._httpClient.delete<Contacto>(`http://localhost:3004/contactos/${contacto.id}`);
     }
 
 }

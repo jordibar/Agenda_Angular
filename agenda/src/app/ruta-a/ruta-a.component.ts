@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Observable } from 'rxjs/Observable';
 import { Contacto } from '../contacto';
 import { ContactosService } from '../contactos.service';
 
@@ -11,6 +12,9 @@ import { ContactosService } from '../contactos.service';
 export class RutaAComponent implements OnInit {
 
   nombres: Contacto[];
+  contactoSeleccionado: Contacto;
+
+  nombres$: Observable<Contacto[]>;
 
     //Para hacer la inyección de dependencias de un servicio
   // debemos hacerlo en el constructor de la clase. Anotamos
@@ -23,13 +27,25 @@ export class RutaAComponent implements OnInit {
   // asociado su template correspondiente, por tanto, es el 
   // momento ideal para enlazar datos entre ellos.
   ngOnInit(): void {
-    this.nombres = this._contactosService.obtenerContactos();
+    
+    // Version 1: Suscripción manual al observable
+    //this._contactosService.obtenerContactos().subscribe((contactos: Contacto[]) => {
+    //  this.nombres = contactos;
+    //});
+
+
+    // Version 2: Suscripción automática al observable con la ayuda del pipe Async
+    this.nombres$ = this._contactosService.obtenerContactos();
   }
   
 
   eliminarContacto(nombre: Contacto): void {
     this._contactosService.eliminarContacto(nombre);
-    this.nombres = this._contactosService.obtenerContactos();
+    //this.nombres = this._contactosService.obtenerContactos();
+  }
+
+  verDetalles(nombre: Contacto): void {
+    this.contactoSeleccionado = nombre;
   }
 
 }

@@ -13,6 +13,8 @@ export class ListaContactosComponent{
     // este evento debe ser un 'EventEmitter' del tipo deseado.
   @Output() botonEliminarPulsado = new EventEmitter<Contacto>();
 
+  @Output() contactoSeleccionado = new EventEmitter<Contacto>();
+
   // Con el decorador Input exponemos un atributo
   // para que un componente padre pueda enlazar datos al hijo.
   @Input() contactos: Contacto[];
@@ -21,6 +23,10 @@ export class ListaContactosComponent{
     // Notificamos datos al componente padre gracias a
     // la función 'emit' de nuestro 'EventEmitter'.
     this.botonEliminarPulsado.emit(contacto);
+  }
+
+  notificarSeleccionContacto(contacto: Contacto): void {
+    this.contactoSeleccionado.emit(contacto);
   }
 
 }
