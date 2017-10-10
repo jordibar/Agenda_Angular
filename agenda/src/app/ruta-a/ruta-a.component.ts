@@ -11,10 +11,10 @@ import { ContactosService } from '../contactos.service';
 })
 export class RutaAComponent implements OnInit {
 
-  nombres: Contacto[];
+
   contactoSeleccionado: Contacto;
 
-  nombres$: Observable<Contacto[]>;
+  contactos$: Observable<Contacto[]>;
 
     //Para hacer la inyección de dependencias de un servicio
   // debemos hacerlo en el constructor de la clase. Anotamos
@@ -35,7 +35,7 @@ export class RutaAComponent implements OnInit {
 
 
     // Version 2: Suscripción automática al observable con la ayuda del pipe Async
-    this.nombres$ = this._contactosService.obtenerContactos();
+    this.contactos$ = this._contactosService.obtenerContactos();
   }
   
 

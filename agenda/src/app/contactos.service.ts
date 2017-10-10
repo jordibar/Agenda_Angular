@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 
 import { Contacto } from './contacto';
 
+import { environment } from '../environments/environment'
+
 // El decorador @Injectable indica que la clase decorada
 // debe comportarse como un servicio
 @Injectable()
@@ -15,16 +17,16 @@ export class ContactosService {
  
 
     obtenerContactos(): Observable<Contacto[]> {
-      return this._httpClient.get<Contacto[]>('http://localhost:3004/contactos');
+      return this._httpClient.get<Contacto[]>(`${environment.rutaApi}/contactos`);
     }
 
-    agregarContacto( contacto: Contacto ):  Observable<Contacto> {
-      return this._httpClient.post<Contacto>('http://localhost:3004/contactos', contacto);
+    agregarContacto(contacto: Contacto):  Observable<Contacto> {
+      return this._httpClient.post<Contacto>(`${environment.rutaApi}/contactos`, contacto);
     }
 
 
     eliminarContacto(contacto: Contacto): Observable<Contacto> {
-      return this._httpClient.delete<Contacto>(`http://localhost:3004/contactos/${contacto.id}`);
+      return this._httpClient.delete<Contacto>(`${environment.rutaApi}/contactos/${contacto.id}`);
     }
 
 }

@@ -10,7 +10,7 @@
     Si queremos recoger los datos que vienen dados en un evento
     utilizamos la palabra reservada $event -->
     <app-lista-contactos
-    [contactos]="nombres$ | async"
+    [contactos]="contactos$ | async"
     (contactoSeleccionado)="verDetalles($event)" 
     (botonEliminarPulsado)="eliminarContacto($event)">
     </app-lista-contactos>
