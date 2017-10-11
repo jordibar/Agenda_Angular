@@ -1,5 +1,10 @@
 <button (click)="cambiarOrden()">
-  <i class="fa" fa-sort-alpha-asc aria-hidden="true"></i>  
+  <i class="fa"
+  [ngClass]="{
+    'fa-sort-alpha-asc': orden === 'desc',
+    'fa-sort-alpha-desc': orden === 'asc'
+  }"
+  aria-hidden="true"> ORDENAR</i>  
 </button>
 
 <ul>
