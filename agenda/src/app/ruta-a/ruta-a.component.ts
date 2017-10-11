@@ -48,4 +48,9 @@ export class RutaAComponent implements OnInit {
     this.contactoSeleccionado = nombre;
   }
 
+
+  verPerfil(ruta: string): void {
+    window.open(ruta, '_blank')
+  }
+
 }

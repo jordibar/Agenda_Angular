@@ -2,35 +2,44 @@
   "contactos": [
     {
       "id": 1,
-      "nombre": "Steve",
-      "Apellidos": "Jobs",
+      "nombre": "Tim",
+      "Apellidos": "Cook",
       "movil": "555 666 777",
-      "email": "steve.jobs@apple.com"
+      "email": "steve.jobs@apple.com",
+      "twitter": "@tim_cook"
     },
     {
       "id": 2,
       "nombre": "Steve",
       "Apellidos": "Wozniak",
       "movil": "765 890 345",
-      "email": "steve.wozniak@apple.com"
+      "email": "steve.wozniak@apple.com",
+      "facebook": "stevewoz",
+      "twitter": "@stevewoz"
     },
     {
       "id": 3,
       "nombre": "Bill",
-      "Apellidos": "Gates"
+      "Apellidos": "Gates",
+      "facebook": "BillGates",
+      "twitter": "@BillGates"
     },
     {
       "id": 4,
       "nombre": "Sunder",
       "Apellidos": "Pichai",
       "movil": null,
-      "email": "sundar.pichai@google.com"
+      "email": "sundar.pichai@google.com",
+      "twitter": "@sundarpichai"
     },
     {
       "id": 5,
       "nombre": "Elon",
       "Apellidos": "Musk",
-      "movil": "345 213 456"
+      "movil": "345 213 456",
+      "facebook": "Elon-Musk",
+      "twitter": "@elonmusk"
+
     },
     {
       "id": 6,
@@ -38,11 +47,6 @@
       "Apellidos": "Esponja",
       "movil": "123 123 123",
       "email": "bob.esponja@dibus.es"
-    },
-    {
-      "nombre": "aadsf",
-      "apellidos": "adsfadf",
-      "id": 7
     }
   ]
 }
